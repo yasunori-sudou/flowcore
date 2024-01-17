@@ -27,9 +27,10 @@
     <meta charset="UTF-8">
 
     <link href="../../modules/bootstrap-5.3.0-dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../../modules/jquery3.7.1.min/jquery3.7.1.min.js"></script>
+    <script src="../../modules/jquery/3.6.1/jquery-3.6.1.min.js"></script>
     <script src="../../modules/bootstrap-5.3.0-dist/js/bootstrap.min.js"></script>
     <script src="../../modules/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
     <link href="./index.css" rel="stylesheet">
 
     <title>flowcore</title>
@@ -39,20 +40,20 @@
 <body>
     
     <?=$headerhtml ?? ''?>
-    
+    <input type="hidden" id="nav-current" value="">
     <div class="container-fluid">
 
         <div class="row">
 
             <nav class="col-md-2 d-none d-md-block bg-light sidebar vh-100">
                 <div class="sidebar-sticky">
-                    <?=$sideber?>
+                    <?=$sideber ?? ''?>
                 </div>
             </nav>
             
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" >
-                <div class="row border border-dark vw-75 overflow-scroll"" style="padding : 1rem;">
-                    <?=$cardval ?? ''?>
+                <div id="mainfield" class="row border border-dark vw-75 overflow-scroll"" style="padding : 1rem;">
+                    <?=$mainfield ?? ''?>
                 </div>
             </main>      
 
