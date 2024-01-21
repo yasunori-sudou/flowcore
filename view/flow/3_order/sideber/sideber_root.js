@@ -13,10 +13,10 @@ $(function() {
             return false;
         }
 
-        console.log("view/flow/3_order/root/order_entry_ajax_root.php?thisid="+thisid)
+        console.log("view/flow/3_order/sideber/sideber_ajax_root.php?thisid="+thisid)
 
         $.ajax({
-            url: '../../view/flow/3_order/root/order_entry_ajax_root.php',
+            url: '../../view/flow/3_order/sideber/sideber_ajax_root.php',
             type: 'GET',
             dataType: 'json',
             data: {

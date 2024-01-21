@@ -1,6 +1,6 @@
 <?php
 
-    /*----------受注内容の照会ページ----------*/
+    /*----------見積未回答の照会ページ----------*/
 
     function mainfield($ds){
 
@@ -73,7 +73,7 @@
         return $mainfield;
     }
 
-    function already_read_process($ds){
+    function already_read_process(){
         //未読かどうかチェックする
 
         //未読を既読に変更

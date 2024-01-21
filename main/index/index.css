@@ -7,7 +7,7 @@ body {
     margin-left: 40px;
     line-height: 10px;
 }
-.sidebar-sticky .nav-link:hover{
+.sidebar-sticky .hover:hover{
     background-color: #c6ebf7;
 }
 
@@ -73,4 +73,9 @@ body {
     border-radius: 10px;    /* line-heightの半分の角丸を指定 */
     min-width: 20px;        /* 最低幅を指定 */
     padding: 0 3px;         /* 左右に少しだけ余白を設定 */
+}
+
+.maintitle{
+    font-size: 24px;
+    margin: 25px 0 20px;
 }

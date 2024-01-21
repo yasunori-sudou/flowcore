@@ -16,11 +16,12 @@
         $sql_question = '';
         $sqlval_arr = [];
 
-        //追加する項目があれば配列に入れる
+        /*----------追加する項目があれば配列に入れる----------*/
         $dbarray['注文No'] = $next_id;
-        $dbarray['見積フラグ'] = 1;
-        $dbarray['未読フラグ'] = 1;
+        $dbarray['見積中フラグ'] = 1;
+        $dbarray['受注先未読フラグ'] = 1;
         $dbarray['履歴'] = '新規登録:'.date('Y-m-d H:i:s').'<br>';
+        $dbarray['見積時刻'] = date('Y-m-d H:i:s');
         $dbarray['create_at'] = date('Y-m-d H:i:s');
 
         foreach($dbarray as $key => $value){
@@ -29,12 +30,12 @@
             array_push($sqlval_arr,$value);
         }
 
+        /*----------問い合わせ内容を登録----------*/
         $sql = "INSERT INTO `注文データ`( ".$sqlval." ) VALUES ( ".$sql_question." );";
+        $ds->Almighty($sql , $sqlval_arr ,'flowcore');
 
-        $ds->Almighty($sql,$sqlval_arr,'flowcore');
-
-        //問い合わせ未回答の数を取得
-        $sql = "SELECT COUNT(`注文No`) AS cnt FROM `注文データ` WHERE `見積回答フラグ` = 0 AND `未読フラグ` = 1;";
+        /*----------問い合わせ未回答の数を取得----------*/
+        $sql = "SELECT COUNT(`注文No`) AS cnt FROM `注文データ` WHERE `見積中フラグ` = 1 AND `見積回答フラグ` = 0 AND `契約終了フラグ` = 0 AND `削除フラグ` = 0;";
         $no_answer_cnt = $ds->Almighty($sql,[],'flowcore')[0]['cnt'] ?? -1;
 
         echo json_encode([$next_id,$no_answer_cnt]);
